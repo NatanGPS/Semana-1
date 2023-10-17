@@ -16,10 +16,13 @@ Semana-1
 
 
 ## Segundo desafio:
-### Primeiro passo: Precisamos instalar novamente nossa iso, porém agora queremo instalar sem 
+### Primeiro passo: Precisamos instalar novamente nossa iso, porém agora queremos instalar sem GUI
 <br>1° - Podemos começar a instalação da mesma forma que fizemos no desafio um, até chegar nessa tela:
 <img src="https://linuxhint.com/wp-content/uploads/2020/12/image36-3.png" alt="" width="650" height="400"><br>
 <br>2° - Quando chegar na etapa da imagem acima configure todas opções com ! em vermelho, inclusive crie uma senha para seu sistema e lembre-se de memoriza-la e antes de prosseguir com a instalação clique na opção 'software selection' e na parte da esquerda marque a segunda caixinha.
+
+<img src="https://github.com/NatanGPS/Semana-1/assets/94939074/5a8f9d23-c718-4164-b84d-6326de3573ab" alt="" width="650" height="400"><br>
+
 
 <br>3° - Após isso inicie a instalação e ao final renicie o sistema como pedido
 
@@ -30,6 +33,7 @@ Semana-1
 5° - Caso tenha criado um usuário escreva o nome e aperte Enter, caso não tenha utilize o usuário "root" e logo após coloque a senha criada na etapa 2:
 
 <img src="https://github.com/NatanGPS/Semana-1/assets/94939074/566d5269-df71-4645-9fc1-2bf4dff97a6f" alt="Primeiro contato" width="350" height="150"><br>
+
 
 Pronto dessa forma o linux sem GUI está totalmente instalado.
 
