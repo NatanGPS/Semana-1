@@ -32,7 +32,7 @@ Semana-1
 
 5° - Caso tenha criado um usuário escreva o nome e aperte Enter, caso não tenha utilize o usuário "root" e logo após coloque a senha criada na etapa 2:
 
-<img src="[https://github.com/NatanGPS/Semana-1/assets/94939074/566d5269-df71-4645-9fc1-2bf4dff97a6f](https://cdn.discordapp.com/attachments/468548236127502359/1163907511464775840/carbon_4.png?ex=65414857&is=652ed357&hm=bd13ab8fb73d3b1fc189b54250943404bfa5986be21ba1a76a5add1d1ba1e60d&)https://cdn.discordapp.com/attachments/468548236127502359/1163907511464775840/carbon_4.png?ex=65414857&is=652ed357&hm=bd13ab8fb73d3b1fc189b54250943404bfa5986be21ba1a76a5add1d1ba1e60d&" alt="Primeiro contato" width="350" height="150"><br>
+<img src="https://cdn.discordapp.com/attachments/468548236127502359/1163907511464775840/carbon_4.png?ex=65414857&is=652ed357&hm=bd13ab8fb73d3b1fc189b54250943404bfa5986be21ba1a76a5add1d1ba1e60d&" alt="Primeiro contato" width="350" height="150"><br>
 
 
 Pronto dessa forma o linux sem GUI está totalmente instalado.
