@@ -46,15 +46,15 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
     sudo passwd nome-desejado
 <br>OBS: É importante falar que a senha deve ser confirmada duas vezes
 
-<br>2° - Após criação de usuário precisamos verificar algumas coisas antes de prosseguimos. Primeiro devemos verificar o nome do seu serviço de rede, para isso podemos utlizar o comando abaixo: 
+<br>2° - Após criação de usuário precisamos verificar algumas coisas antes de prosseguimos. Primeiro devemos verificar o nome da sua interface de rede, para isso podemos utlizar o comando abaixo: 
 
     nmcli device status
 <br> O retorno do comando deve ser parecido com essa imagem abaixo: 
 
 <img src="https://cdn.discordapp.com/attachments/971178165479301134/1164285546944790670/image.png?ex=6542a869&is=65303369&hm=3c8dae56c7f7b8e1811f8a4d30e632d631573897a20413d23686a918e666d39f&" alt="" width="350" height="100"><br>
-<br> O nome presente em verde na coluna "Device" vai ser o que iremos utilizar nas próximas vezes, caso essa linha esteja em vermelho significa que o serviço está desabilitado e voce pode ativa-lo com o seguinte comando: 
+<br> O nome presente em verde na coluna "Device" vai ser o que iremos utilizar nas próximas vezes, caso essa linha esteja em vermelho significa que a interface está desabilitado e voce pode ativa-lo com o seguinte comando: 
             
-    nmcli device connect nome-serviço
+    nmcli device connect nome-interface
 
 <br>3° - agora podemos começar nossas configurações para configurar um IP fixo, primeiro devemos editar o arquivo onde nosso serviço está localizado dessa forma nos certificamos que esse IP ficará fixo, começamos pedindo acesso root ao linux:
 
@@ -62,7 +62,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br> o sistema irá pedir sua senha
 <br> Após isso precisamos abrir o arquivo com algum editor de texto para edita-lo, escolhi o vi:
 
-    sudo vi /etc/sysconfig/network-scripts/ifcfg-nome-servico
+    sudo vi /etc/sysconfig/network-scripts/ifcfg-nome-interface
 <br> Uma vez que estamos dentro do arquivo apertamos a tecla "i" para editar o arquivo. É importante falar que vamos utilizar os seguinte IP para a máquina 1: 192.168.1.10 e para a segunda 192.168.1.11, tirando os IP´s todas as outras configurações podem ser compartilhadas na hora de editar nosso arquivo. Segue os atributos que devemos mudar no arquivo, lembrando que aqueles que não existem podem ser criados. Os demais atributos não precisam ser mudados
 
     BOOTPROTO=static
@@ -71,6 +71,21 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
     GATEWAY=192.168.1.1
     DNS1=8.8.8.8
     DNS2=8.8.4.4
-<br> Após mudar os atributos como acima, apertamos Esc e logo após :wq e apertamos Enter pra salvar e sair do arquivo
+<br> Após mudar os atributos como acima, apertamos Esc e logo após :wq e apertamos Enter pra salvar e sair do arquivo.
+<br> Agora, precisamos reniciar a interface para aplicar as mudanças digite em seu console:
+
+    sudo systemctl restart network
+
+<br> Caso apareça algum erro relatando que o network não existe utilize o seguinte comando:
+    
+    sudo systemctl restart NetworkManager
+
+<br> Pronto nossas mudanças estão salvas, podemos conferir digitando no console:
+
+    ifconfig
+<br> Algo assim irá aparecer e ali poderemos ver o ip que configuramos
+
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164301262599245834/image.png?ex=6542b70c&is=6530420c&hm=810b0b7b61b5d1c6d625072cdbb87fd59907e21511543a414cf47dce8ba2c7fd&" alt="" width="450" height="200"><br>
+
 
 
