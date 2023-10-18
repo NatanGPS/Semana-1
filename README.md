@@ -35,7 +35,24 @@ Semana-1
 <img src="https://cdn.discordapp.com/attachments/468548236127502359/1163907511464775840/carbon_4.png?ex=65414857&is=652ed357&hm=bd13ab8fb73d3b1fc189b54250943404bfa5986be21ba1a76a5add1d1ba1e60d&" alt="Primeiro contato" width="350" height="150"><br>
 
 
-Pronto dessa forma o linux sem GUI está totalmente instalado.
+Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessario repetir o processo para  criar um outro servidor igual.
 
+### Segundo passo: configurando usuarios, ips fixos e NFS
+<br>1° - Caso um usuario não tenha sido criado, é preciso criar um, para isso vamos utlizar os seguintes comandos:
 
+    sudo useradd nome-desejado
+<br> Logo após precisamos configurar uma senha: 
+
+    sudo passwd nome-desejado
+<br>OBS: É importante falar que a senha deve ser confirmada duas vezes
+
+<br>2° - Após criação de usuário precisamos verificar algumas coisas antes de prosseguimos. Primeiro devemos verificar o nome do seu serviço de rede, para isso podemos utlizar o comando abaixo: 
+
+    nmcli device status
+<br> O retorno do comando deve ser parecido com essa imagem abaixo: 
+
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164285546944790670/image.png?ex=6542a869&is=65303369&hm=3c8dae56c7f7b8e1811f8a4d30e632d631573897a20413d23686a918e666d39f&" alt="" width="350" height="100"><br>
+<br> O nome presente em verde na coluna "Device" vai ser o que iremos utilizar nas próximas vezes, caso essa linha esteja em vermelho significa que o serviço está desabilitado e voce pode ativa-lo com o seguinte comando: 
+            
+    nmcli device connect nome-servico
 
