@@ -83,9 +83,11 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br> Pronto nossas mudanças estão salvas, podemos conferir digitando no console:
 
     ifconfig
-<br> Algo assim irá aparecer e ali poderemos ver o ip que configuramos
+<br> Algo assim irá aparecer e ali onde está grifado em amarelo poderemos ver o ip que configuramos
 
-<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164301262599245834/image.png?ex=6542b70c&is=6530420c&hm=810b0b7b61b5d1c6d625072cdbb87fd59907e21511543a414cf47dce8ba2c7fd&" alt="" width="450" height="200"><br>
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164301262599245834/image.png?ex=6542b70c&is=6530420c&hm=810b0b7b61b5d1c6d625072cdbb87fd59907e21511543a414cf47dce8ba2c7fd&" alt="" width="500" height="200">
+
+<br>
 
 
 
