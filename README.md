@@ -58,36 +58,6 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 
 <br>3° - agora podemos começar nossas configurações para configurar um IP fixo, primeiro devemos editar o arquivo onde nosso serviço está localizado dessa forma nos certificamos que esse IP ficará fixo, começamos pedindo acesso root ao linux:
 
-    sudo su
-<br> o sistema irá pedir sua senha
-<br> Após isso precisamos abrir o arquivo com algum editor de texto para edita-lo, escolhi o vi:
-
-    sudo vi /etc/sysconfig/network-scripts/ifcfg-nome-interface
-<br> Uma vez que estamos dentro do arquivo apertamos a tecla "i" para editar o arquivo. É importante falar que vamos utilizar os seguinte IP para a máquina 1: 192.168.1.10 e para a segunda 192.168.1.11, tirando os IP´s todas as outras configurações podem ser compartilhadas na hora de editar nosso arquivo. Segue os atributos que devemos mudar no arquivo, lembrando que aqueles que não existem podem ser criados. Os demais atributos não precisam ser mudados
-
-    BOOTPROTO=static
-    IPADDR=192.168.1.10  #deve ser unico a cada servidor
-    NETMASK=255.255.255.0
-    GATEWAY=192.168.1.1
-    DNS1=8.8.8.8
-    DNS2=8.8.4.4
-<br> Após mudar os atributos como acima, apertamos Esc e logo após :wq e apertamos Enter pra salvar e sair do arquivo.
-<br> Agora, precisamos reniciar a interface para aplicar as mudanças digite em seu console:
-
-    sudo systemctl restart network
-
-<br> Caso apareça algum erro relatando que o network não existe utilize o seguinte comando:
-    
-    sudo systemctl restart NetworkManager
-
-<br> Pronto nossas mudanças estão salvas, podemos conferir digitando no console:
-
-    ifconfig
-<br> Algo assim irá aparecer e ali onde está grifado em amarelo poderemos ver o ip que configuramos
-
-<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164301262599245834/image.png?ex=6542b70c&is=6530420c&hm=810b0b7b61b5d1c6d625072cdbb87fd59907e21511543a414cf47dce8ba2c7fd&" alt="" width="500" height="200">
-
-<br>
-
+  
 
 
