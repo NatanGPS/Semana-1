@@ -89,8 +89,10 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br>Nesta imagem usei alguns comandos para provar que realmente estou controlando minha VM, ou seja, de fato nossa configuração de IP está 100% funcional!
 
 ###Terceiro passo: instalando o NFS
-<br> 3° 
+<br> 3° - Vamos começar instalando o nfs em nossas VM'S com o seguinte comando:
 
+    sudo dnf install nfs-utils
+<br> Com a instalação realizada podemos criar uma pasta compartilhada entre nossas VMs para ver se está tudo certo, como o passo a passo será feito igualmente no nosso terceiro desafio demonstarei por lá como criar essa pasta de forma prática.
 
 
 ## Terceiro desafio: configurando o mariadb e o wordpress nas vms
