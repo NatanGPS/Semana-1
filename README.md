@@ -37,7 +37,7 @@ Semana-1
 
 Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessario repetir o processo para  criar um outro servidor igual.
 
-### Segundo passo: configurando usuarios, ips fixos e NFS
+### Segundo passo: configurando usuarios, ips fixos
 <br>1° - Caso um usuario não tenha sido criado, é preciso criar um, para isso vamos utlizar os seguintes comandos:
 
     sudo useradd nome-desejado
@@ -54,13 +54,42 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <img src="https://cdn.discordapp.com/attachments/971178165479301134/1164285546944790670/image.png?ex=6542a869&is=65303369&hm=3c8dae56c7f7b8e1811f8a4d30e632d631573897a20413d23686a918e666d39f&" alt="" width="350" height="100"><br>
 <br> O nome presente em verde na coluna "Device" vai ser o que iremos utilizar nas próximas vezes, caso essa linha esteja em vermelho significa que a interface está desabilitado e voce pode ativa-lo com o seguinte comando: 
             
-    nmcli device connect nome-interface
+    nmcli device connect enp0s3
 
-<br>3° - agora podemos começar nossas configurações para configurar um IP fixo, primeiro devemos editar o arquivo onde nosso serviço está localizado dessa forma nos certificamos que esse IP ficará fixo, começamos abrindo o arquivo de configuração da nossa interface d root ao linux:
+<br>3° - agora podemos começar nossas configurações para configurar um IP fixo, primeiro devemos editar o arquivo onde nosso serviço está localizado dessa forma nos certificamos que esse IP ficará fixo, começamos abrindo o arquivo de configuração da nossa interface com algum editor de texto da nossa preferencia eu usarei o vi nessa parte:
 
+    sudo vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+<br> Dentro do arquivo devemos modificar algumas linha e adicionar outra para garantirmos que tudo funcione essas modificações são possiveis apertando a tecl i do nosso teclado, devemos adicionar o ip que queremos, nosso GATEWAY E NOSSA NETMASK os dois ultimos citados podem ser igual nos dois servers, porém o ip deve ser diferente em cada vm. Lembrando que escolhi o ip e o gateway de acordo com as configurações do meu roteador que tem como ip: 192.168.2.1 e o mesmo numero como GATEWAY por isso sempre escolherei meus ips com o seguinte formato: 192.168.2.X sendo X o numero escolhido, nesse caso escolhi o ip 192.168.2.108 como o ip da minha VM1 e 192.168.2.106 para minha VM2 vamos lá então, as seguintes linhas devem ser modificadas
 
+    BOOTPROTO=static
+<br> E as seguinte devem ser adicionadas:
 
+    IPADDR=192.168.2.108
+    NETMASK=255.255.255.0
+    GATEWAY=192.168.2.1
+    DNS1=8.8.8.8
+    DNS2=8.8.4.4
+<br> Lembrando que unica mudança da VM1 pra VM2 foi a linha IPADDR em que coloquei outro IP, existem mais linhas no arquivo mas elas não são importante pra nós no momento então depois de modificar nosso aquivo apertamos a tecla ESC e logo apos escrevemos :wq e apertamos Enter para salvar nossas mudanças e sair do arquivo
 
+<br>3° - Agora vamos reniciar nossa network para termos certeza que tudo foi gravado devidamente, digitamos o seguinte comando em nosso terminal:
+
+    sudo systemctl restart NetworkManager
+<br>Pronto nosso ip fixo está configurado podemos ver melhor digitando ip a em nosso terminal
+
+<img src="https://media.discordapp.net/attachments/971178165479301134/1164799334223724635/image.png?ex=654486ea&is=653211ea&hm=351a3bf93675ac16bb2989e9fade6b919ce6eccf7cbf820e33705cd2a86792d3&=" alt="" width="450" height="200">
+
+<br>Sucesso! PPara termos 100% de certeza que tudo deu certo podemos tentar um conexão com nossa VM por meio de ssh no Sheel do windows
+<br> Na barra de pesquisa do nosso computador fisico escrever PowerShell e abrimos a aplicação, quando aberto digitamos o comando ssh o nosso nome de usuario da nossa VM e o IP da mesma, segue o comando:
+
+    ssh natangps@192.168.2.108
+<br>Se tudo der certo o shell irá pedir sua senha de usuario, digite e estará controlando sua VM via ssh, segue uma imagem como exemplo
+
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164800548491509760/image.png?ex=6544880b&is=6532130b&hm=2f5296530f98e3b5adcee7dca02d224c26d4c31cd8a62ed8210c860a981730d9&" alt="" width="450" height="200">
+
+<br>Nesta imagem usei alguns comandos para provar que realmente estou controlando minha VM, ou seja, de fato nossa configuração de IP está 100% funcional!
+
+###Terceiro passo: instalando o NFS
+<br> 3° 
 
 
 
@@ -73,7 +102,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 
     sudo systemctl start mariadb
     sudo systemctl enable mariadb
-<br> Certo agora precisamos connfigurar algumas coisas relacionadas a segurança do nosso banco, vamos digitar o seguinte comando em nosso console:
+<br> Certo agora precisamos configurar algumas coisas relacionadas a segurança do nosso banco, vamos digitar o seguinte comando em nosso console:
 
     sudo mysql_secure_installation
 <br>  Siga as instruções que estão escritas para configurar da maneira que quiser, no meu caso não configurei usuario e nem senhas além de deixar todas as outras configurações no modo padrão (nada seguro mas bem pratico para testarmos coisas em pequena escala)
