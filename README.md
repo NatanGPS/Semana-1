@@ -26,7 +26,7 @@ Semana-1
 
 <br>3° - Após isso inicie a instalação e ao final renicie o sistema como pedido
 
-<br>4° - Quando inicar novemente o sistema a seguinte situação irá aparecer
+<br>4° - Quando iniciar novemente o sistema a seguinte situação irá aparecer
 
 <img src="https://cdn.discordapp.com/attachments/468548236127502359/1163907529433157723/carbon_3.png?ex=6541485b&is=652ed35b&hm=1675d27d1b732bb78ef59bd6449141b021f8c9ea08efbec896765167cca07510&" alt="" width="350" height="150"><br>
 
