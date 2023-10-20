@@ -64,7 +64,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 
 
 
-### Terceiro desafio: configurando o mariadb e o wordpress nas vms
+## Terceiro desafio: configurando o mariadb e o wordpress nas vms
 <br> Ja que ja temos o NFS instalado em nossas vm's, vou começar a instalação do banco mariaDB na minha vm1 de ip(192.168.2.108)
 <br> 1 - Vamos começar com o seguinte comando
 
