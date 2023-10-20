@@ -88,7 +88,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 
 <br>Nesta imagem usei alguns comandos para provar que realmente estou controlando minha VM, ou seja, de fato nossa configuração de IP está 100% funcional!
 
-###Terceiro passo: instalando o NFS
+### Terceiro passo: instalando o NFS
 <br> 3° - Vamos começar instalando o nfs em nossas VM'S com o seguinte comando:
 
     sudo dnf install nfs-utils
@@ -96,8 +96,8 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 
 
 ## Terceiro desafio: configurando o mariadb e o wordpress nas vms
-<br> Ja que ja temos o NFS instalado em nossas vm's, vou começar a instalação do banco mariaDB na minha vm1 de ip(192.168.2.108)
-<br> 1 - Vamos começar com o seguinte comando
+<br> ### Primeiro passo: Ja que ja temos o NFS instalado em nossas vm's, vou começar a instalação do banco mariaDB na minha vm1 de ip(192.168.2.108)
+<br> 1° - Vamos começar com o seguinte comando
 
     sudo dnf install mariadb-server
 <br> Agora que instalamos precisamos connfigura-lo para inciar automaticamente e habilita-lo tambem, vamos fazer isso usando os comandos:
@@ -110,7 +110,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br>  Siga as instruções que estão escritas para configurar da maneira que quiser, no meu caso não configurei usuario e nem senhas além de deixar todas as outras configurações no modo padrão (nada seguro mas bem pratico para testarmos coisas em pequena escala)
 <br> Pronto nosso banco está instalado e configurado.
 
-<br> 2 - Agora precisamos criar um banco e um usuario para que possamos nos conectar com o Wordpress futuramente, para começar vamos criar um banco primeiramente:
+<br> 2° - Agora precisamos criar um banco e um usuario para que possamos nos conectar com o Wordpress futuramente, para começar vamos criar um banco primeiramente:
 
     mysql -u root -p
 <br> Agora que estamos dentro do banco vamos criar um novo database usarei o nome 'wordpress" para meu database
@@ -136,8 +136,8 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
     sudo systemctl restart nfs
 <br>Perfeito! Da parte da nossa nossa VM1 tudo está configurado vamos para VM2 agora terminar as configurações e instalar nosso Wordpress
 
-### Quarto passo: instalando e configurando nosso wordpress
-<br> 1 - Vamos primeiro terminar de configurar nossa pasta compartilhada com nossa VM1 para isso precisamos criar um pasta nessa VM2 que será nossa pasta compartilhada que usaremos em nosso wordpress:
+### Segundo passo: instalando e configurando nosso wordpress
+<br> 1° - Vamos primeiro terminar de configurar nossa pasta compartilhada com nossa VM1 para isso precisamos criar um pasta nessa VM2 que será nossa pasta compartilhada que usaremos em nosso wordpress:
 
     sudo nkdir /mnt/mariadb_shared_vm2
 <br> Agora com nossa pasta criada vamos montar finalmente nosso NFS com o seguinte comando:
@@ -160,7 +160,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br> Pronto, agora sim podemos instalar nosso wordpress mas antes vamos ao diretorio em que vamos instalar ele para deixarmos o ambiente mais organizado
 
     cd /var/www/html
-<br> Uma vez nessa pasta podemos comecar a instalação vamos lá:
+<br>2° - Uma vez nessa pasta podemos comecar a instalação vamos lá:
 
     wget https://wordpress.org/latest.tar.gz
     tar -xvf latest.tar.gz
