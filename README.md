@@ -56,7 +56,30 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
             
     nmcli device connect nome-interface
 
-<br>3° - agora podemos começar nossas configurações para configurar um IP fixo, primeiro devemos editar o arquivo onde nosso serviço está localizado dessa forma nos certificamos que esse IP ficará fixo, começamos pedindo acesso root ao linux:
+<br>3° - agora podemos começar nossas configurações para configurar um IP fixo, primeiro devemos editar o arquivo onde nosso serviço está localizado dessa forma nos certificamos que esse IP ficará fixo, começamos abrindo o arquivo de configuração da nossa interface d root ao linux:
+
+
+
+
+
+
+
+### Terceiro passo: configurando o mariadb e o wordpress nas vms
+<br> Ja que ja temos o NFS instalado em nossas vm's, vou começar a instalação do banco mariaDB na minha vm1 de ip(192.168.2.108)
+<br> 1 - Vamos começar com o seguinte comando
+
+    sudo dnf install mariadb-server
+<br> Agora que instalamos precisamos connfigura-lo para inciar automaticamente e habilita-lo tambem, vamos fazer isso usando os comandos:
+
+    sudo systemctl start mariadb
+    sudo systemctl enable mariadb
+<br> Certo agora precisamos connfigurar algumas coisas relacionadas a segurança do nosso banco, vamos digitar o seguinte comando em nosso console:
+
+    sudo mysql_secure_installation
+<br>  Siga as instruções que estão escritas para configurar da maneira que quiser, no meu caso não configurei usuario e nem senhas além de deixar todas as outras configurações no modo padrão (nada seguro mas bem pratico para testarmos coisas em pequena escala)
+<br> Pronto nosso banco está instalado e configurado.
+
+<br> 2 - 
 
   
 
