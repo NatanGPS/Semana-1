@@ -103,9 +103,70 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br> Agora reniciamos o NFS para garantir que nossas mudanças sejam aplicadas:
 
     sudo systemctl restart nfs
-<br> perfeito! Da parte da nossa nossa VM1 tudo está configurado vamos para VM2 agora terminar as configurações e instalar nosso Wordpress
+<br>Perfeito! Da parte da nossa nossa VM1 tudo está configurado vamos para VM2 agora terminar as configurações e instalar nosso Wordpress
 
 ### Quarto passo: instalando e configurando nosso wordpress
+<br> 1 - Vamos primeiro terminar de configurar nossa pasta compartilhada com nossa VM1 para isso precisamos criar um pasta nessa VM2 que será nossa pasta compartilhada que usaremos em nosso wordpress:
+
+    sudo nkdir /mnt/mariadb_shared_vm2
+<br> Agora com nossa pasta criada vamos montar finalmente nosso NFS com o seguinte comando:
+
+    sudo mount -t nfs 192.168.2.106:/var/lib/mysql /mnt/maria_db_shared_vm2
+<br> Pronto Tudo está conectado agora, vamos nos preparar para instalar nosso wordpress agora, primeiro devemos instalar as dependencias para melhor compatibilidade dele, vamos então executar os comandos abaixo para instalar o Apache e o PHP em nossa maquina
+
+
+    sudo dnf install php php-mysqlnd php-gd php-xml httpd
+    sudo dnf install epel-release
+    sudo dnf install http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    sudo dnf install dnf-utils
+    sudo dnf module enable php:remi-7.4
+    sudo dnf install php
+    sudo dnf install php-{cli,mysqlnd,xml,pdo,gd,mbstring,json}
+<br> Com tudo devidamente instalado precisamos habilitar e inicar nosso Apache com os seguintes comandos:
+
+    sudo systemctl start httpd
+    sudo systemctl enable httpd
+<br> Pronto, agora sim podemos instalar nosso wordpress mas antes vamos ao diretorio em que vamos instalar ele para deixarmos o ambiente mais organizado
+
+    cd /var/www/html
+<br> Uma vez nessa pasta podemos comecar a instalação vamos lá:
+
+    wget https://wordpress.org/latest.tar.gz
+    tar -xvf latest.tar.gz
+<br> Agora entramos na pasta com o comando:
+
+    cd wordpress/
+<br> Uma vez dentro da pasta abrimos o arquivo  de configuracao 'wp-config.php' pode ser que ele estaja com um nome a mais depois do config então para ter certeza do nome completo digite ls no terminal e veja qual o nome correto como no print abaixo
+
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164788576828014612/image.png?ex=65447ce5&is=653207e5&hm=ab82490bcc4d17dba22ec54c6a20fd312d65b10fc514e5951a87f8509e760340&" alt="" width="550" height="200">
+
+<br> No meu caso o nome está como 'wp-config-sample.php' vamos abri-lo usando o editor de texto nano
+
+    sudo nano wp-config-sample.php
+<br> Uma vez dentro do arquivo precisamos modicar algumas informações alem de colocar como database nossa pasta compartilhada do server 1 que está com nosso mariaDB
+sendo assim vamos modificas nosso arquivo assim:
+
+<br> Antes da modificação:
+
+    define('DB_NAME', 'database name');
+    define('DB_USER', 'dbusername');
+    define('DB_PASSWORD', 'dbpassword');
+    define('DB_HOST', 'localhost');
+
+<br> Depois de preencher as informações: 
+
+    define('DB_NAME', '/mnt/mariadb_share_vm2/wordpress');
+    define('DB_USER', 'wpress');
+    define('DB_PASSWORD', '1234');
+    define('DB_HOST', 'localhost');
+<br>É importante dizer que não é somente essas linhas que estão em nosso arquivos mas elas são a mais importante pro nosso funcionamento
+<br> Agora podemos salvar nosso arquivo com Ctrl + O e sair com Ctrl + X
+<br> Pronto se configuramos certo basta apenas abrir um navegador em nosso computador fisico e digitar na barra de pesquisa 
+
+
+    
+
+    
 
 
     
