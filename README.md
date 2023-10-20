@@ -84,7 +84,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
     ssh natangps@192.168.2.108
 <br>Se tudo der certo o shell irá pedir sua senha de usuario, digite e estará controlando sua VM via ssh, segue uma imagem como exemplo
 
-<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164800548491509760/image.png?ex=6544880b&is=6532130b&hm=2f5296530f98e3b5adcee7dca02d224c26d4c31cd8a62ed8210c860a981730d9&" alt="" width="450" height="200">
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164800548491509760/image.png?ex=6544880b&is=6532130b&hm=2f5296530f98e3b5adcee7dca02d224c26d4c31cd8a62ed8210c860a981730d9&" alt="" width="520" height="350">
 
 <br>Nesta imagem usei alguns comandos para provar que realmente estou controlando minha VM, ou seja, de fato nossa configuração de IP está 100% funcional!
 
@@ -167,7 +167,7 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
     cd wordpress/
 <br> Uma vez dentro da pasta abrimos o arquivo  de configuracao 'wp-config.php' pode ser que ele estaja com um nome a mais depois do config então para ter certeza do nome completo digite ls no terminal e veja qual o nome correto como no print abaixo
 
-<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164788576828014612/image.png?ex=65447ce5&is=653207e5&hm=ab82490bcc4d17dba22ec54c6a20fd312d65b10fc514e5951a87f8509e760340&" alt="" width="550" height="200">
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164788576828014612/image.png?ex=65447ce5&is=653207e5&hm=ab82490bcc4d17dba22ec54c6a20fd312d65b10fc514e5951a87f8509e760340&" alt="" width="600" height="200">
 
 <br> No meu caso o nome está como 'wp-config-sample.php' vamos abri-lo usando o editor de texto nano
 
@@ -193,7 +193,7 @@ sendo assim vamos modificas nosso arquivo assim:
 
 <br> Pronto! Se configuramos certo basta apenas abrir um navegador em nosso computador fisico e digitar na barra de pesquisa: http://192.168.2.106/wordpress/ devemos ver a seguinte tela:
 
-<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164790701570134047/image.png?ex=65447ee0&is=653209e0&hm=9a3ad005de7af81c8e050f486815d07f39ee79aaf7f69cafcd15d5ee68a67aea&" alt="" width="580" height="300">
+<img src="https://cdn.discordapp.com/attachments/971178165479301134/1164790701570134047/image.png?ex=65447ee0&is=653209e0&hm=9a3ad005de7af81c8e050f486815d07f39ee79aaf7f69cafcd15d5ee68a67aea&" alt="" width="650" height="250">
 
 
 
