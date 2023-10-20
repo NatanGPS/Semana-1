@@ -79,7 +79,36 @@ Pronto dessa forma o linux sem GUI está totalmente instalado, agora é necessar
 <br>  Siga as instruções que estão escritas para configurar da maneira que quiser, no meu caso não configurei usuario e nem senhas além de deixar todas as outras configurações no modo padrão (nada seguro mas bem pratico para testarmos coisas em pequena escala)
 <br> Pronto nosso banco está instalado e configurado.
 
-<br> 2 - 
+<br> 2 - Agora precisamos criar um banco e um usuario para que possamos nos conectar com o Wordpress futuramente, para começar vamos criar um banco primeiramente:
+
+    mysql -u root -p
+<br> Agora que estamos dentro do banco vamos criar um novo database usarei o nome 'wordpress" para meu database
+
+    CREATE DATABASE wordpress;
+<br> Pronto temos um novo database, mas precisamos criar um usuario e senha para nosso WordPress conseguir acessar e modificar o mesmo, primeiro criamos um usuario e uma senha, no meu caso o nome do usuario foi definido como 'wpress' e a senha como '1234'
+
+    CREATE USER 'wpress'@'localhost' INDENTIFIED BY '1234';
+
+<br> Pronto usuario criado, mas precisamos atribuir privilegios para que esse usuario possa adiministrar o banco:
+
+    GRANT ALL PRIVILEGES ON wordpress.* TO 'wpress'@ 'localhost';
+    FLUSH PRIVILEGES;
+<br> Tudo certo agora precisamos criar a pasta que iremos compartilhar com nosso Wordpress para que o mesmo funcione, sendo assim vamos acessar o documento exports no seguinte diretorio /etc/exports e adicionar a pasta /mysql no compartilhamento com nossa VM2, primeiro acessamos o documento exports com o editor de texto da sua preferencia, vou utilizar o nano para isso:
+
+    sudo nano /etc/exports
+<br> Se tiver alguma linha no arquivo apague e escreva uma nova compartilhando a pasta do diretorio /var/lib/mysql com nossa VM2:
+
+    /var/lib/mysql 192.168.2.106(rw,sync,no_root_squash)
+<br> Salve o arquivo apertando Ctrl + O e saia utilizando Ctrl + X
+<br> Agora reniciamos o NFS para garantir que nossas mudanças sejam aplicadas:
+
+    sudo systemctl restart nfs
+<br> perfeito! Da parte da nossa nossa VM1 tudo está configurado vamos para VM2 agora terminar as configurações e instalar nosso Wordpress
+
+### Quarto passo: instalando e configurando nosso wordpress
+
+
+    
 
   
 
