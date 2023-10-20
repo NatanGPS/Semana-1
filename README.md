@@ -192,6 +192,12 @@ sendo assim vamos modificas nosso arquivo assim:
     define('DB_HOST', 'localhost');
 <br>É importante dizer que não é somente essas linhas que estão em nosso arquivos mas elas são a mais importante pro nosso funcionamento
 <br> Agora podemos salvar nosso arquivo com Ctrl + O e sair com Ctrl + X
+<br> Antes de tentar acesssar nosso site vamos nos certificar que está tudo certo com nosso firewall digite os seguintes comandos
+
+    sudo firewall-cmd --permanent --add-service=http
+    sudo firewall-cmd --permanent --add-service=https
+    sudo firewall-cmd --reload
+
 
 <br> Pronto! Se configuramos certo basta apenas abrir um navegador em nosso computador fisico e digitar na barra de pesquisa: http://192.168.2.106/wordpress/ devemos ver a seguinte tela:
 
