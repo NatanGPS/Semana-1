@@ -186,10 +186,10 @@ sendo assim vamos modificas nosso arquivo assim:
 
 <br> Depois de preencher as informações: 
 
-    define('DB_NAME', '/mnt/mariadb_share_vm2/wordpress');
+    define('DB_NAME', 'wordpress');
     define('DB_USER', 'wpress');
     define('DB_PASSWORD', '1234');
-    define('DB_HOST', 'localhost');
+    define('DB_HOST', '192.168.2.108:3306');
 <br>É importante dizer que não é somente essas linhas que estão em nosso arquivos mas elas são a mais importante pro nosso funcionamento
 <br> Agora podemos salvar nosso arquivo com Ctrl + O e sair com Ctrl + X
 <br> Antes de tentar acesssar nosso site vamos nos certificar que está tudo certo com nosso firewall digite os seguintes comandos
