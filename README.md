@@ -12,7 +12,7 @@ Semana-1
 <br>1° - Acessar o site da oracle para baixar a iso que vamos utilizar: https://yum.oracle.com/oracle-linux-isos.html
 <br>2° - Baixar a versão mais atual do linux R8 geralmente nomeada da seguinte forma "OracleLinuc-R8-U(numero da versão)-x86_64-dvd.iso"
 <br>3° - Com a iso já baixada, abra o virtual box e clique na opção "New"
-<br>4° - Utilizando o tutorial do seguinte site a seguir para terminar de realizar a instalação  e a cofiguração do linux em sua maquina virtual: https://linuxhint.com/install_oracle_linux_8_virtual_box/.
+<br>4° - Selecione a pasta em que voce baixou seu iso, depois siga as instruções que o Virtual Box te der, caso precise utilize desse link para utilizar: https://linuxhint.com/install_oracle_linux_8_virtual_box/
 
 
 ## Segundo desafio:
